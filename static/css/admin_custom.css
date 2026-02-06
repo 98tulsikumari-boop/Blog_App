@@ -1,0 +1,65 @@
+/* GLOBAL BACKGROUND */
+.content-wrapper {
+    background-color: #f6faf7;
+}
+
+/* CARDS */
+.card {
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* CARD HEADER */
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5efe8;
+    font-weight: 600;
+}
+
+/* SIDEBAR */
+.main-sidebar {
+    background-color: #e9f5ee !important;
+}
+
+.sidebar a {
+    color: #1e4d3a !important;
+}
+
+.sidebar a:hover {
+    background-color: #d4ecdf !important;
+    border-radius: 8px;
+}
+
+/* NAVBAR */
+.navbar-success {
+    background-color: #2f7d5a !important;
+}
+
+/* BUTTONS */
+.btn-success {
+    background-color: #3aa76d;
+    border-color: #3aa76d;
+    border-radius: 25px;
+}
+
+.btn-success:hover {
+    background-color: #31915f;
+}
+
+/* TABLES */
+.table thead th {
+    background-color: #e9f5ee;
+    border-bottom: none;
+}
+
+/* FORM INPUTS */
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #d8e8df;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4 {
+    color: #1f3d2b;
+}

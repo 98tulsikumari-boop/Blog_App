@@ -35,13 +35,27 @@ class BlogSerializer(serializers.ModelSerializer):
         return list(obj.tags.values_list("name", flat=True))
 
 class BlogListSerializer(serializers.ModelSerializer):
-    """Simplified serializer for blog list (without full content)"""
     category_name = serializers.CharField(source="category.name", read_only=True)
     author_name = serializers.CharField(source="author.username", read_only=True)
+    tags_list = serializers.SerializerMethodField()
 
     class Meta:
         model = Blog 
-        fields =["id", "title", "description", "cover_image", "category_name", "author_name", "created_at"]
+        fields = [
+            "id",
+            "title",
+            "description",
+            "content",
+            "cover_image",
+            "category_name",
+            "author_name",
+            "tags_list",
+            "created_at"
+        ]
+
+    def get_tags_list(self, obj):
+        return list(obj.tags.values_list("name", flat=True))
+
 
 
 

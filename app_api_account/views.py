@@ -5,8 +5,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User, LoginOTP
@@ -136,6 +137,7 @@ def generate_otp():
     return str(random.randint(100000, 999999))
 
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def register_user(request):
     serializer = RegisterSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
@@ -221,6 +223,7 @@ def login_user(request):
     return Response({"message": "OTP sent to email"}, status=200)
 
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def verify_login_otp(request):
     email = request.data.get("email")
     otp = request.data.get("otp")

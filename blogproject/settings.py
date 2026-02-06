@@ -81,7 +81,22 @@ MIDDLEWARE = [
 #     "http://127.0.0.1:8000",
 # ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# ================= CORS CONFIGURATION =================
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+CORS_ALLOW_CREDENTIALS = True
+
+# Critical for fixing 401 Unauthorized during Axios requests
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
 
 ROOT_URLCONF = 'blogproject.urls'
 
@@ -154,7 +169,7 @@ AUTH_USER_MODEL = 'app_api_account.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES = [os.path.join(BASE_DIR, 'static')]
 
 # Login Url
@@ -198,8 +213,68 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Blog Admin",
-    "site_header": "Blog App",
-    "welcome_sign": "Welcome to Blog Admin section",
-    "search_model": "auth.User",
+    "site_title": "WellBe Admin",
+    "site_header": "WellBe Dashboard",
+    "site_brand": "WellBe",
+    # "site_logo": "images/logo.png",  # optional (match your site logo)
+    "login_logo": "images/logo.png",
+    "site_logo_classes": "img-circle elevation-1",
+    "welcome_sign": "Welcome to WellBe Admin Panel 🌿",
+
+    "search_model": [
+        "auth.User",
+        "app_api_blog.Blog",
+        "app_api_tag.Tag",
+    ],
+
+    "changeform_format": "tabs",
+    "show_ui_builder": False,
+
+    # CUSTOM CSS (VERY IMPORTANT)
+    "custom_css": "css/admin_custom.css",
+}
+
+
+JAZZMIN_UI_TWEAKS = {
+
+    # Text sizing
+    "navbar_small_text": False,
+    "footer_small_text": True,
+    "body_small_text": False,
+    "brand_small_text": False,
+
+    # 🌿 BRAND COLORS
+    "brand_colour": "navbar-success",
+    "accent": "accent-success",
+
+    # NAVBAR
+    "navbar": "navbar-success navbar-dark",
+    "navbar_fixed": True,
+    "no_navbar_border": True,
+
+    # SIDEBAR
+    "sidebar": "sidebar-light-success",
+    "sidebar_fixed": True,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_flat_style": True,
+
+    # LAYOUT
+    "layout_boxed": False,
+    "footer_fixed": False,
+
+    # THEME
+    "theme": "flatly",      # clean & modern
+    "dark_mode_theme": None,
+
+    # BUTTONS (soft wellness colors)
+    "button_classes": {
+        "primary": "btn-success",
+        "secondary": "btn-outline-success",
+        "info": "btn-outline-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success",
+    }
 }
