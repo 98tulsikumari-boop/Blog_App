@@ -16,6 +16,9 @@ urlpatterns = [
     path("api/v1/bookmark/", include("app_api_bookmark.urls")),
     path("api/v1/subscribe/", include("app_api_newsletter.urls")), 
     path('api/v1/contact/',include('app_api_contact.urls'))
+
+    # Template
+    # path("category/", include("app_template_category")),
 ]
 
 # Serve Media  files in development

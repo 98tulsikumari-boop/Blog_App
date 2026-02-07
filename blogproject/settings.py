@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # My app
+    # My app_api
     'app_api_blog.apps.AppApiBlogConfig',
     'app_api_tag.apps.AppApiTagConfig',
     'app_api_category.apps.AppApiCategoryConfig',
@@ -58,6 +58,15 @@ INSTALLED_APPS = [
     'app_api_contact.apps.AppApiContactConfig',
     'app_api_newsletter.apps.AppApiNewsletterConfig',
     'app_api_bookmark.apps.AppApiBookmarkConfig',
+
+    # My App Template
+    # 'app_template_account.apps.ApptemplateAccountConfig',
+    # 'app_template_blog.apps.ApptemplateBlogConfig',
+    # 'app_template_bookmark.apps.ApptemplateBookmarkConfig',
+    # 'app_template_category.apps.ApptemplateConfig',
+    # 'app_template_contact.apps.ApptemplateConfig',
+    # 'app_template_newsletter.apps.ApptemplateConfig',
+    # 'app_template_tag.apps.ApptemplateConfig',
 
     # Third party app
     'rest_framework',
